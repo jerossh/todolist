@@ -13,7 +13,7 @@ http-server
 # 2. About node_module
 
 ### 1) classnames
-[link](https://www.npmjs.com/package/classnames): A simple utility for conditionally joining classNames together
+[npm-link](https://www.npmjs.com/package/classnames): A simple utility for conditionally joining classNames together
 
 before:
 
@@ -56,7 +56,10 @@ var Button = React.createClass({
 });
 ```
 
-## polyfills
+#### polyfills of classNames
 
 - Array.isArray
 - Object.keys
+
+### 2) director
+[npm-link](https://www.npmjs.com/package/director): A client Side/Server Side Router
