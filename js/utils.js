@@ -25,7 +25,7 @@ var app = app || {};
       return count === 1 ? word : word + 's';
     },
 
-
+    // 存储到 localstorage
     store: function (namespace, data) {
       if (data) {
         return localStorage.setItem(namespace, JSON.stringify(data));
@@ -35,17 +35,20 @@ var app = app || {};
       return (store && JSON.parse(store)) || [];
     },
 
+    // 替换内容，es6 可以 Object.assign
     extend: function () {
       var newObj = {};
       for (var i = 0; i < arguments.length; i++){
         var obj = arguments[i];
         for (var key in obj) {
-          newObj[key] = obj[key];
+          if (Object.hasOwnProperty(key)){
+            newObj[key] = obj[key];
+          }
         }
       }
+      return newObj;
     },
-
-
+    
     // 这里结束
   };
 })();
