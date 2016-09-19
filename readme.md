@@ -9,3 +9,53 @@ cd tolist
 
 http-server
 ```
+
+## About node_module
+
+#### [classnames](https://www.npmjs.com/package/classnames): A simple utility for conditionally joining classNames together
+
+before:
+
+```javascript
+var Button = React.createClass({
+// ...
+render () {
+  var btnClass = 'btn';
+  if (this.state.isPressed) btnClass += ' btn-pressed';
+  else if (this.state.isHovered) btnClass += ' btn-over';
+  return <button className={btnClass}>{this.props.label}</button>;
+}
+});
+```
+
+after:
+
+```javascript
+var classNames = require('classnames');
+
+var Button = React.createClass({
+  // ...
+  render () {
+    var btnClass = classNames({
+      'btn': true,
+      'btn-pressed': this.state.isPressed,
+      'btn-over': !this.state.isPressed && this.state.isHovered
+    });
+    return <button className={btnClass}>{this.props.label}</button>;
+  }
+});
+```
+
+ also you can:
+
+ ```javascript
+ var btnClass = classNames('btn', this.props.className, {
+  'btn-pressed': this.state.isPressed,
+  'btn-over': !this.state.isPressed && this.state.isHovered
+});
+```
+
+## polyfills
+
+- Array.isArray
+- Object.keys

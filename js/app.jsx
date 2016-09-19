@@ -14,5 +14,21 @@ var TodoItem = app.TOdoItem;
 var ENTER_KEY = 13;
 
 var TodoApp = React.createClass({
-  
-})
+  getInitialState: function(){
+    return {
+      nowShowing: app.ALL_TODOS,
+      editing: null,
+      newTodo: ''
+    };
+  },
+
+  componentDidMount: function () {
+    var setState = this.setState;
+    var router = router({
+      '/': setState.bind(this, {nowShowing: app.ALL_TODOS}),
+      '/active': setState.bind(this, {nowShowing: app.ACTIVE_TODOS}),
+      '/completed': setState.bind(this, {nowShowing: app.COMPLETED_TODOS}),
+    });
+  }
+
+});
