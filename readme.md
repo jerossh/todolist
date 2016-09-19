@@ -10,9 +10,11 @@ cd tolist
 http-server
 ```
 
-## About node_module
+# About node_module
 
-#### [classnames](https://www.npmjs.com/package/classnames): A simple utility for conditionally joining classNames together
+## [classnames](https://www.npmjs.com/package/classnames):
+
+ A simple utility for conditionally joining classNames together
 
 before:
 
