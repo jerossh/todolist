@@ -1,4 +1,4 @@
-# React TodoMVC Example
+# 1. React TodoMVC Example
 
 need http-server module
 
@@ -10,11 +10,10 @@ cd tolist
 http-server
 ```
 
-# About node_module
+# 2. About node_module
 
-## [classnames](https://www.npmjs.com/package/classnames):
-
- A simple utility for conditionally joining classNames together
+### 1) classnames
+[link](https://www.npmjs.com/package/classnames): A simple utility for conditionally joining classNames together
 
 before:
 
