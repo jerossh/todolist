@@ -71,7 +71,7 @@ var app = app || {};
 
     render: function () {
       return (
-        <li className={className({
+        <li className={classNames({
           completed: this.props.todo.completed,
           editing: this.props.editing
         })}>
@@ -90,9 +90,10 @@ var app = app || {};
           <input
             ref='editField'
             className='edit'
-            value={this.states.editText}
-            onBlur={this.handleSubmit}
-            onKeyDown={this.handleKeyDown}
+						value={this.state.editText}
+						onBlur={this.handleSubmit}
+						onChange={this.handleChange}
+						onKeyDown={this.handleKeyDown}
           />
         </li>
       );
