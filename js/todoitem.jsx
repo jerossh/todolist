@@ -71,13 +71,35 @@ var app = app || {};
 
     render: function () {
       return (
-
+        <li className={className({
+          completed: this.props.todo.completed,
+          editing: this.props.editing
+        })}>
+          <div classsName='view'>
+            <input
+              className='toggle'
+              type='checkbox'
+              checked={this.props.todo.completed}
+              onChange={this.props.onToggle}
+            />
+            <label onDoubleClick={this.handleEdit}>
+              {this.props.todo.title}
+            </label>
+            <button className='destroy' onClick={this.props.onDestroy} />
+          </div>
+          <input
+            ref='editField'
+            className='edit'
+            value={this.states.editText}
+            onBlur={this.handleSubmit}
+            onKeyDown={this.handleKeyDown}
+          />
+        </li>
       );
     }
 
 
   });
 // TodoItem 结束
-
 
 })();

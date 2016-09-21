@@ -58,7 +58,7 @@ var app = app || {};
     this.inform();
   };
 
-  app.TodoModel.prototye.destroy = function (todo) {
+  app.TodoModel.prototype.destroy = function (todo) {
     this.todos = this.todos.filter(function (candidate) {
       return candidate !== todo;
     });
@@ -66,7 +66,7 @@ var app = app || {};
     this.inform();
   };
 
-  app.TodoModel.protype.save = function (todoTosave, text) {
+  app.TodoModel.prototype.save = function (todoTosave, text) {
     this.todos = this.todos.map(function (todo) {
       return todo !== todoSave ? todo : Utils.extend({}, todo, {title: text});
     });
@@ -79,8 +79,5 @@ var app = app || {};
       return !todo.completed;
     });
   };
-
-
-
 
 })();
