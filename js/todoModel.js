@@ -17,8 +17,8 @@ var app = app || {};
   };
 
   // 观察者模式
-  app.TodoModel.prototype.subcribe = function (onchange) {
-    this.onchange.push(onchange);
+  app.TodoModel.prototype.subscribe = function (onchange) {
+    this.onChanges.push(onchange);
   };
 
 

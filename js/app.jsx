@@ -92,7 +92,7 @@ var app = app || {};
       var main;
       var todos = this.props.model.todos;
 
-      var shownTods = todos.filter(function (todo) {
+      var shownTodos = todos.filter(function (todo) {
         switch (this.state.nowShowing) {
         case app.ACTIVE_TODOS:
           return !todo.completed;
@@ -173,7 +173,7 @@ var app = app || {};
   var model = new app.TodoModel('react-todos');
 
   function render() {
-    react.render(
+    React.render(
       <TodoApp model={model}/>,
       document.getElementsByClassName('todoapp')[0]
     );
@@ -181,5 +181,4 @@ var app = app || {};
 
   model.subscribe(render);
   render();
-
 })();

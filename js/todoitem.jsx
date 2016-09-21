@@ -63,7 +63,7 @@ var app = app || {};
     // Safely manipulate the DOM after updating the state when invoking `this.props.onEdit()`
     componentDidUpdate: function (prevProps) {
       if (!prevProps.editing && this.props.editing) {
-        var node = react.findDOMNode(this.refs.edtField);
+        var node = React.findDOMNode(this.refs.edtField);
         node.focus();
         node.setSelectionRange(node.value.length, node.value.length);
       }

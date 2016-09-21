@@ -48,7 +48,7 @@ var app = app || {};
       }
       return newObj;
     },
-    
+
     // 这里结束
   };
 })();
