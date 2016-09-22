@@ -23,6 +23,7 @@ var app = app || {};
         );
       }
 
+
       var nowShowing = this.props.nowShowing;
       return (
         <footer className='footer'>
@@ -48,7 +49,7 @@ var app = app || {};
               {' '}
             <li>
               <a href='#/completed'
-                className={classNames({selected: nowShowing === app.ACTIVE_TODOS})}
+                className={classNames({selected: nowShowing === app.COMPLETED_TODOS})}
               >
               completed
               </a>

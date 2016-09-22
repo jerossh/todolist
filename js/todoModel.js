@@ -21,7 +21,7 @@ var app = app || {};
     this.onChanges.push(onchange);
   };
 
-
+  // 处理更改
   app.TodoModel.prototype.inform = function () {
     Utils.store(this.key, this.todos);    // 每次都存入local
     this.onChanges.forEach(function (cb) {cb(); });  // 存储的都是方法？
@@ -78,6 +78,8 @@ var app = app || {};
     this.todos = this.todos.filter(function (todo) {
       return !todo.completed;
     });
+
+    this.inform();
   };
 
 })();

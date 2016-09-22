@@ -8,14 +8,17 @@ var app = app || {};
 (function () {
   'use strict';
 
+  // 这里定义的是 css 的类
   app.ALL_TODOS = 'all';
   app.ACTIVE_TODOS = 'active';
   app.COMPLETED_TODOS = 'completed';
+
   var TodoFooter = app.TodoFooter;
   var TodoItem = app.TodoItem;
 
   var ENTER_KEY = 13;
 
+// 整个组件
   var TodoApp = React.createClass({
 
     // 初始化
@@ -30,12 +33,18 @@ var app = app || {};
    // 加载完
     componentDidMount: function () {
       var setState = this.setState;
-      var router = Router({
+
+      // 通过路由改变来定义 nowShowing 状态
+      var router = Router({         // director module
         '/': setState.bind(this, {nowShowing: app.ALL_TODOS}),
         '/active': setState.bind(this, {nowShowing: app.ACTIVE_TODOS}),
         '/completed': setState.bind(this, {nowShowing: app.COMPLETED_TODOS}),
       });
+
+      // 初始化状态
       router.init('/');
+      // redirect {String}: This value will be used if '/#/' is not found in the URL.
+      // (e.g., init('/') will resolve to '/#/', init('foo') will resolve to '/#foo').
     },
 
     // 跟踪状态变化
@@ -63,9 +72,9 @@ var app = app || {};
       this.props.model.toggleAll(checked);
     },
 
-    toggle: function (todoToggle) {
-      this.props.model.toggle(todoToToggle);
-    },
+    toggle: function (todoToToggle) {
+  			this.props.model.toggle(todoToToggle);
+  	},
 
     destroy: function (todo) {
       this.props.model.destroy(todo);
@@ -117,24 +126,28 @@ var app = app || {};
 						onCancel={this.cancel}
 					/>
 				);
-			}, this);
+			}, this);  // thisArg: Optional. Value to use as this when executing callback.
 
+      // 不懂
 			var activeTodoCount = todos.reduce(function (accum, todo) {
 				return todo.completed ? accum : accum + 1;
-			}, 0);
+			}, 0);       // initialValue
 
 			var completedCount = todos.length - activeTodoCount;
 
+
+      // footer定义
 			if (activeTodoCount || completedCount) {
 				footer =
 					<TodoFooter
-						count={activeTodoCount}
-						completedCount={completedCount}
-						nowShowing={this.state.nowShowing}
-						onClearCompleted={this.clearCompleted}
+						count={activeTodoCount}                     // 待办事务
+						completedCount={completedCount}             // 完成事务
+						nowShowing={this.state.nowShowing}          // 显示状态
+						onClearCompleted={this.clearCompleted}      //
 					/>;
 			}
 
+      // 待办定义
 			if (todos.length) {
 				main = (
 					<section className="main">
@@ -171,10 +184,10 @@ var app = app || {};
 		}
 	});
 
-	var model = new app.TodoModel('react-todos');
+	var model = new app.TodoModel('react-todos');    //  todomodel 还是一个构造函数
 
 	function render() {
-		React.render(
+		React.render(                                  // ReactDOM 弃用了？
 			<TodoApp model={model}/>,
 			document.getElementsByClassName('todoapp')[0]
 		);

@@ -63,3 +63,30 @@ var Button = React.createClass({
 
 ### 2) director
 [npm-link](https://www.npmjs.com/package/director): A client Side/Server Side Router
+
+#### Constructor
+
+```js
+var router = Router(routes);
+
+//
+ // Assign routes to an object literal.
+ //
+ var routes = {
+   //
+   // a route which assigns the function `bark`.
+   //
+   '/dog': bark,
+   //
+   // a route which assigns the functions `meow` and `scratch`.
+   //
+   '/cat': [meow, scratch]
+ };
+
+ //
+ // Instantiate the router.
+ //
+ var router = Router(routes);
+```
+
+#### Adhoc Routing
