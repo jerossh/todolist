@@ -86,7 +86,7 @@ var app = app || {};
 
     save: function (todoToSave, text){
       this.props.model.save(todoToSave, text);
-      this.setState({edit: null});
+      this.setState({editing: null});
     },
 
     cancel: function () {
@@ -114,6 +114,8 @@ var app = app || {};
 			}, this);
 
 			var todoItems = shownTodos.map(function (todo) {
+
+        // 这些方法怎么被被调用的？
 				return (
 					<TodoItem
 						key={todo.id}

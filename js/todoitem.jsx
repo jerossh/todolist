@@ -15,7 +15,8 @@ var app = app || {};
     handleSubmit: function (event){
       var val = this.state.editText.trim();
       if (val) {
-        this.props.onsave(val);
+        // onSave 从哪里来？
+        this.props.onSave(val);
         this.setState({editText: val});
       } else {
         this.props.onDestroy();   // on destroy 是什么
@@ -63,7 +64,7 @@ var app = app || {};
     // Safely manipulate the DOM after updating the state when invoking `this.props.onEdit()`
     componentDidUpdate: function (prevProps) {
       if (!prevProps.editing && this.props.editing) {
-        var node = React.findDOMNode(this.refs.edtField);
+        var node = React.findDOMNode(this.refs.editField);
         node.focus();
         node.setSelectionRange(node.value.length, node.value.length);
       }

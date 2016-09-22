@@ -68,7 +68,7 @@ var app = app || {};
 
   app.TodoModel.prototype.save = function (todoTosave, text) {
     this.todos = this.todos.map(function (todo) {
-      return todo !== todoSave ? todo : Utils.extend({}, todo, {title: text});
+      return todo !== todoTosave ? todo : Utils.extend({}, todo, {title: text});
     });
 
     this.inform();
