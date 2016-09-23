@@ -62,11 +62,15 @@ var app = app || {};
 
 
     // Safely manipulate the DOM after updating the state when invoking `this.props.onEdit()`
+    // prevProps 是干嘛的？
     componentDidUpdate: function (prevProps) {
       if (!prevProps.editing && this.props.editing) {
         var node = React.findDOMNode(this.refs.editField);
+
+        // 要聚焦所以需要真实的dom？
         node.focus();
-        node.setSelectionRange(node.value.length, node.value.length);
+        // 这个有用？哦，然光标自动聚焦到文字后面
+        ode.setSelectionRange(node.value.length, node.value.length);
       }
     },
 
@@ -99,8 +103,6 @@ var app = app || {};
         </li>
       );
     }
-
-
   });
 // TodoItem 结束
 

@@ -21,7 +21,7 @@ var app = app || {};
 // 整个组件
   var TodoApp = React.createClass({
 
-    // 初始化
+    // 输入框初始化
     getInitialState: function(){
       return {
         nowShowing: app.ALL_TODOS,        // 显示类别
@@ -47,27 +47,36 @@ var app = app || {};
       // (e.g., init('/') will resolve to '/#/', init('foo') will resolve to '/#foo').
     },
 
-    // 跟踪状态变化
+    // 跟踪输入框变化，写入 newTodo
     handleChange: function(event) {
+      // event.target.value
       this.setState({newTodo: event.target.value});
     },
 
+    // 跟踪 new-todo 输入框，
     handleNewTodoKeyDown: function(event) {
+      // 监听按键，如果不是 enter 键，则不做操作
       if(event.keyCode !== ENTER_KEY) {
         return;
       }
+      // 以下只有 enter 键继续
 
-      event.preventDefault();
+      // 好像移除掉也不是很有影响
+      // event.preventDefault();
 
       var val = this.state.newTodo.trim();
 
+      // 如果不是非空则添加
       if (val) {
         this.props.model.addTodo(val);
+        // 添加完之后，清楚状态内容
         this.setState({newTodo: ''});
       }
     },
 
+
     toggleAll: function(event) {
+      // 全选框的状态
       var checked = event.target.checked;
       this.props.model.toggleAll(checked);
     },
@@ -165,6 +174,9 @@ var app = app || {};
 					</section>
 				);
 			}
+
+      // 这里要搞清楚，
+      // 每次点击，用 handleNewTodoKeyDown 处理，如果不是 enter键，返回 undefined
 
 			return (
 				<div>

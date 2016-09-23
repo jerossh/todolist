@@ -12,11 +12,13 @@ var app = app || {};
   // 模型
   app.TodoModel = function (key) {
     this.key = key;
+
+    // 这个就是todos
     this.todos = Utils.store(key);
     this.onChanges = [];
   };
 
-  // 观察者模式
+  // 观察者模式，更改放入 onChanges ，有什么用？
   app.TodoModel.prototype.subscribe = function (onchange) {
     this.onChanges.push(onchange);
   };
@@ -27,8 +29,9 @@ var app = app || {};
     this.onChanges.forEach(function (cb) {cb(); });  // 存储的都是方法？
   };
 
-  // 添加
+  // 添加输入的内容
   app.TodoModel.prototype.addTodo = function (title) {
+    
     this.todos = this.todos.concat({
       id: Utils.uuid(),
       title: title,
