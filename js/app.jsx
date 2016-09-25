@@ -61,8 +61,8 @@ var app = app || {};
       }
       // 以下只有 enter 键继续
 
-      // 好像移除掉也不是很有影响
-      // event.preventDefault();
+      // 好像移除掉也不是很有影响，阻止提交后刷新
+      event.preventDefault();
 
       var val = this.state.newTodo.trim();
 
