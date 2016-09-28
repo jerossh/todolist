@@ -20,3 +20,5 @@ module.exports = keyMirror({
   TODO_UNDO_COMPLETE: null,
   TODO_UPDATE_TEXT: null
 });
+
+// 构建 name和key相同的，es6原生就有这个功能

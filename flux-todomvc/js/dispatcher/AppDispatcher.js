@@ -14,3 +14,6 @@
 var Dispatcher = require('flux').Dispatcher;
 
 module.exports = new Dispatcher();
+
+
+// 去 读了 flux 源码，依旧不是很懂
