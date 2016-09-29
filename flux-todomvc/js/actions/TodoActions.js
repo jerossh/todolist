@@ -9,6 +9,8 @@
  * TodoActions
  */
 
+// 相当于事件的函数库
+
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var TodoConstants = require('../constants/TodoConstants');
 

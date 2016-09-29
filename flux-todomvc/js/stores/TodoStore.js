@@ -116,6 +116,8 @@ var TodoStore = assign({}, EventEmitter.prototype, {
   }
 });
 
+
+注册？
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
   var text;
