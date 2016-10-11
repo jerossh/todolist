@@ -74,6 +74,8 @@ function destroyCompleted() {
   }
 }
 
+
+// 都存在这里？
 var TodoStore = assign({}, EventEmitter.prototype, {
 
   /**
@@ -117,7 +119,7 @@ var TodoStore = assign({}, EventEmitter.prototype, {
 });
 
 
-注册？
+// 注册？
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
   var text;
