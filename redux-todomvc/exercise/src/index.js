@@ -6,9 +6,11 @@ import App from './containers/App'    // 这是啥？
 import reducer from './reducers'      // 这个函数要好好了解下
 import 'todomvc-app-css/index.css'    // css 吗
 
+// 使用 reducer 自动处理 action
 const store = createStore(reducer)
 
 render(
+  // Provider 是 react-redux 存储 store 的地方，App的所有子组件就默认都可以拿到state了
   <Provider store={store}>
     <App />
   </Provider>,

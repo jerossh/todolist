@@ -63,8 +63,14 @@ export default class MainSection extends Component {
     const { todos, actions } = this.props
     const { filter } = this.state
 
+    // TODO_FILTERS的状态改变在这里
+    // filtrer 可以不是回调函数？
+    // 括号内直接就是回调内容？
     const filteredTodos = todos.filter(TODO_FILTERS[filter])
+
+    // cout前一个结果，todo是当前处理的元素
     const completedCount = todos.reduce((count, todo) =>
+    // todo有一个completed属性
       todo.completed ? count + 1 : count,
       0
     )
@@ -73,7 +79,9 @@ export default class MainSection extends Component {
       <section className="main">
         {this.renderToggleAll(completedCount)}
         <ul className="todo-list">
+
           {filteredTodos.map(todo =>
+            // actions 里面有这么多东西？
             <TodoItem key={todo.id} todo={todo} {...actions} />
           )}
         </ul>
