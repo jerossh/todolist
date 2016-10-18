@@ -18,12 +18,12 @@ App.propTypes = {
   actions: PropTypes.object.isRequired
 }
 
-
+// 这个state是从 reducer 里面拿，reducer 在 store 里 state（初始化在里面，以后的state也是 reduce 返回）
 const mapStateToProps = state => ({
   todos: state.todos                       // 输入道 UI 的参数
 })
 
-// 直接 bind了所有的 action？
+// dispatch 这些 action ？
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(TodoActions, dispatch)    // 这个还是不理解
 })

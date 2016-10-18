@@ -18,6 +18,7 @@ export default class Footer extends Component {
     onShow: PropTypes.func.isRequired
   }
 
+  // 剩下的没完成的任务，这些都是UI组件
   renderTodoCount() {
     const { activeCount } = this.props
     const itemWord = activeCount === 1 ? 'item' : 'items'
